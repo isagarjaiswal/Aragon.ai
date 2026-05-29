@@ -1,0 +1,12 @@
+# Dependencies
+node_modules/
+
+# Local Environment Secrets
+.env
+
+# Local Storage Uploads
+public/uploads/*
+!public/uploads/.gitkeep
+
+# System files
+.DS_Store

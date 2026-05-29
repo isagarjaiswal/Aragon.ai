@@ -1,0 +1,35 @@
+{
+  "name": "aragon-image-validator-backend",
+  "version": "1.0.0",
+  "description": "Enterprise-grade automated image validation and hosting backend using Express, PostgreSQL, Prisma, and Cloudinary",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "db:migrate": "npx prisma migrate dev --name init",
+    "db:generate": "npx prisma generate",
+    "test:validators": "node src/scripts/verify-validators.js"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.14.0",
+    "@tensorflow-models/blazeface": "^0.0.7",
+    "@tensorflow/tfjs-backend-cpu": "^4.19.0",
+    "@tensorflow/tfjs-converter": "^4.22.0",
+    "@tensorflow/tfjs-core": "^4.19.0",
+    "cloudinary": "^2.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "heic-convert": "^2.1.0",
+    "multer": "^1.4.5-lts.1",
+    "sharp": "^0.33.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0",
+    "prisma": "^5.14.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "private": true
+}

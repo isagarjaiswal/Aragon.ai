@@ -1,0 +1,11 @@
+# Dependencies
+node_modules/
+
+# Production Build Output
+dist/
+
+# Local Environment Secrets
+.env
+
+# System files
+.DS_Store

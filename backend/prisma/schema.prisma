@@ -1,0 +1,37 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum ImageStatus {
+  PENDING
+  ACCEPTED
+  REJECTED
+}
+
+model Image {
+  id           String      @id @default(uuid())
+  filename     String
+  originalName String
+  mimeType     String
+  size         Int         // File size in bytes
+  width        Int         // Width in pixels
+  height       Int         // Height in pixels
+  status       ImageStatus @default(PENDING)
+  s3Url        String      // Cloudinary URL mapped as s3Url to align with schema specs
+  publicId     String?     // Cloudinary Public ID for asset deletion
+  imageHash    String?     @db.VarChar(16) // Perceptual difference hash (hex)
+  blurScore    Float       // Variance of Laplacian
+  faceCount    Int         // Face count audit metric
+  faceSizeRatio Float       // Face bounding box ratio metric
+  rejectReason String?     // Nullable string containing specific failing reason
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+
+  @@index([status])
+  @@index([imageHash])
+}

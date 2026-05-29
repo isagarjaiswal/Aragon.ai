@@ -1,0 +1,23 @@
+# Dependency Directories
+**/node_modules/
+node_modules/
+
+# Local Environment Secrets
+**/.env
+.env
+backend/.env
+frontend/.env
+
+# Production Build Directories
+**/dist/
+dist/
+frontend/dist/
+
+# Local Storage Uploads
+backend/public/uploads/*
+!backend/public/uploads/.gitkeep
+
+# System & OS Files
+.DS_Store
+**/.DS_Store
+Thumbs.db
